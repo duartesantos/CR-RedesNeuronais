@@ -9,11 +9,11 @@ inputsAll = [inputsStart, inputsTrain, inputsTest];
 targetsAll = [targetsStart, targetsTrain, targetsTest];
 
 % carregar as melhores redes
-load('rede_top_73_162459.mat', 'net');
+load('../models/rede_top_73_162459.mat', 'net');
 net1 = net;
-load('rede_top_64_152746.mat', 'net');
+load('../models/rede_top_64_152746.mat', 'net');
 net2 = net;
-load('rede_top_62_162036.mat', 'net');
+load('../models/rede_top_62_162036.mat', 'net');
 net3 = net;
 
 
@@ -70,7 +70,7 @@ for i = 1:length(redes)
 
 
     % Gravar rede com precisão de teste
-    nomeFicheiro = sprintf('rede_top_%02d_%s.mat', round(accTest * 100), datestr(now,'HHMMSS'));
+    nomeFicheiro = sprintf('../models/rede_top_%02d_%s.mat', round(accTest * 100), datestr(now,'HHMMSS'));
     save(nomeFicheiro, 'netAtual');  % Salvar a rede com o nome gerado
     fprintf('Rede guardada como "%s" com %.2f%% de precisão de teste.\n', nomeFicheiro, accTest * 100);
 end

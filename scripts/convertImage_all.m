@@ -1,7 +1,8 @@
 function [inputs, targets] = convertImage_all()
 
-% Caminhos para as pastas (relativos ao diretório atual)
+% Caminhos para as pastas (relativos ao diretório atual - pastas de dados estão na raiz)
 basePath = fileparts(mfilename('fullpath'));
+basePath = fileparts(basePath);  % Subir um nível (de scripts/ para raiz)
 baseFolders = {
     fullfile(basePath, 'start'), ...
     fullfile(basePath, 'train'), ...

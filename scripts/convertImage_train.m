@@ -1,7 +1,8 @@
 function [inputs, targets] = convertImage_train()
 
-% Caminho relativo ao diretório atual
+% Caminho relativo ao diretório atual (pastas de dados estão na raiz)
 basePath = fileparts(mfilename('fullpath'));
+basePath = fileparts(basePath);  % Subir um nível (de scripts/ para raiz)
 baseFolder = fullfile(basePath, 'train');
 
 % Lista das classes (subpastas)

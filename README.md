@@ -18,30 +18,34 @@ TPCR2425/
 ├── README.md                    # Este ficheiro
 ├── .gitignore                   # Ficheiros a ignorar no Git
 │
-├── convertImage_*.m            # Funções de conversão de imagens
-│   ├── convertImage_all.m      # Carrega todas as imagens (start, train, test)
-│   ├── convertImage_start.m    # Carrega imagens da pasta start
-│   ├── convertImage_train.m    # Carrega imagens da pasta train
-│   ├── convertImage_test.m     # Carrega imagens da pasta test
-│   └── convertImage_draw.m     # Carrega imagens da pasta draw
+├── docs/                        # Documentação do projeto
+│   ├── RelatorioCR.docx        # Relatório do trabalho
+│   └── TP2_IIA_2425.pdf        # Enunciado do trabalho
 │
-├── train_*.m                    # Scripts de treino
-│   ├── train_start_a.m         # Treino com dados start (alínea a)
-│   ├── train_train_b.m         # Treino com dados train (alínea b)
-│   ├── train_test_c_i.m        # Teste com dados test (alínea c.i)
-│   ├── train_test_c_ii.m       # Teste com dados test (alínea c.ii)
-│   └── train_all_c_iii.m       # Treino com todos os dados (alínea c.iii)
+├── scripts/                     # Scripts MATLAB
+│   ├── convertImage_*.m        # Funções de conversão de imagens
+│   │   ├── convertImage_all.m  # Carrega todas as imagens (start, train, test)
+│   │   ├── convertImage_start.m # Carrega imagens da pasta start
+│   │   ├── convertImage_train.m # Carrega imagens da pasta train
+│   │   ├── convertImage_test.m  # Carrega imagens da pasta test
+│   │   └── convertImage_draw.m  # Carrega imagens da pasta draw
+│   │
+│   ├── train_*.m               # Scripts de treino
+│   │   ├── train_start_a.m     # Treino com dados start (alínea a)
+│   │   ├── train_train_b.m     # Treino com dados train (alínea b)
+│   │   ├── train_test_c_i.m    # Teste com dados test (alínea c.i)
+│   │   ├── train_test_c_ii.m   # Teste com dados test (alínea c.ii)
+│   │   └── train_all_c_iii.m    # Treino com todos os dados (alínea c.iii)
+│   │
+│   ├── test_draw_d.m           # Teste com imagens desenhadas (alínea d)
+│   └── app.mlapp               # Aplicação MATLAB App Designer
 │
-├── test_draw_d.m                # Teste com imagens desenhadas (alínea d)
-│
-├── rede_top_*.mat               # Modelos de rede neural treinados
+├── models/                     # Modelos de rede neural treinados
 │   ├── rede_top_73_162459.mat  # Rede com 73% de precisão
 │   ├── rede_top_64_152746.mat  # Rede com 64% de precisão
 │   └── rede_top_62_162036.mat  # Rede com 62% de precisão
 │
-├── app.mlapp                    # Aplicação MATLAB App Designer
-│
-├── draw/                        # Imagens desenhadas manualmente
+├── draw/                       # Imagens desenhadas manualmente
 │   ├── circle/
 │   ├── kite/
 │   ├── parallelogram/
@@ -49,7 +53,7 @@ TPCR2425/
 │   ├── trapezoid/
 │   └── triangle/
 │
-├── start/                       # Conjunto inicial de imagens (5 por classe)
+├── start/                      # Conjunto inicial de imagens (5 por classe)
 │   ├── circle/
 │   ├── kite/
 │   ├── parallelogram/
@@ -57,7 +61,7 @@ TPCR2425/
 │   ├── trapezoid/
 │   └── triangle/
 │
-├── train/                       # Conjunto de treino (50 por classe)
+├── train/                      # Conjunto de treino (50 por classe)
 │   ├── circle/
 │   ├── kite/
 │   ├── parallelogram/
@@ -65,7 +69,7 @@ TPCR2425/
 │   ├── trapezoid/
 │   └── triangle/
 │
-└── test/                        # Conjunto de teste (10 por classe)
+└── test/                       # Conjunto de teste (10 por classe)
     ├── circle/
     ├── kite/
     ├── parallelogram/
@@ -120,13 +124,15 @@ As imagens são automaticamente processadas pelas funções `convertImage_*.m`:
 
 #### Alínea A - Treino com dados START
 ```matlab
-train_start_a.m
+cd scripts
+train_start_a
 ```
 Treina uma rede com o conjunto inicial (start) e explora diferentes topologias.
 
 #### Alínea B - Treino com dados TRAIN
 ```matlab
-train_train_b.m
+cd scripts
+train_train_b
 ```
 Treina redes com o conjunto de treino completo, explorando:
 - Diferentes topologias (número de neurónios e camadas)
@@ -135,27 +141,33 @@ Treina redes com o conjunto de treino completo, explorando:
 - Diferentes rácios de divisão treino/validação/teste
 
 #### Alínea C - Testes e Avaliação
-- **c.i**: `train_test_c_i.m` - Avalia redes treinadas no conjunto de teste
-- **c.ii**: `train_test_c_ii.m` - Treina redes com dados de teste e avalia em todos os conjuntos
-- **c.iii**: `train_all_c_iii.m` - Treina redes com todos os dados (start + train + test)
+```matlab
+cd scripts
+train_test_c_i      % Avalia redes treinadas no conjunto de teste
+train_test_c_ii     % Treina redes com dados de teste e avalia em todos os conjuntos
+train_all_c_iii     % Treina redes com todos os dados (start + train + test)
+```
 
 #### Alínea D - Teste com Imagens Desenhadas
 ```matlab
-test_draw_d.m
+cd scripts
+test_draw_d
 ```
 Avalia o desempenho das redes com imagens desenhadas manualmente.
 
 ### 3. Uso da Aplicação
 
-Execute o ficheiro `app.mlapp` no MATLAB App Designer para uma interface gráfica interativa.
+Execute o ficheiro `scripts/app.mlapp` no MATLAB App Designer para uma interface gráfica interativa.
+
+**Nota**: Certifique-se de executar os scripts a partir da pasta `scripts/` ou adicione a pasta `scripts/` ao path do MATLAB.
 
 ## 📈 Resultados
 
-O projeto inclui três modelos de rede neural pré-treinados com diferentes níveis de precisão:
+O projeto inclui três modelos de rede neural pré-treinados com diferentes níveis de precisão (localizados em `models/`):
 
-- **Rede 1** (`rede_top_73_162459.mat`): 73% de precisão
-- **Rede 2** (`rede_top_64_152746.mat`): 64% de precisão
-- **Rede 3** (`rede_top_62_162036.mat`): 62% de precisão
+- **Rede 1** (`models/rede_top_73_162459.mat`): 73% de precisão
+- **Rede 2** (`models/rede_top_64_152746.mat`): 64% de precisão
+- **Rede 3** (`models/rede_top_62_162036.mat`): 62% de precisão
 
 ## 🔍 Processamento de Imagens
 
@@ -237,5 +249,5 @@ Desenvolvido para o Trabalho Prático de Computação Robótica (TPCR) 2024/2025
 
 ---
 
-**Nota**: Certifique-se de que os caminhos das pastas estão corretos nos ficheiros `convertImage_*.m` antes de executar os scripts.
+**Nota**: Os scripts foram configurados para usar caminhos relativos. Execute os scripts a partir da pasta `scripts/` ou adicione a pasta ao path do MATLAB. Os modelos de rede são carregados automaticamente da pasta `models/` e as imagens das pastas `start/`, `train/`, `test/` e `draw/` na raiz do projeto.
 

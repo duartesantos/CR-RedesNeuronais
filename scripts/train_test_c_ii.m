@@ -5,11 +5,11 @@
 
 
 % carregar as melhores redes
-load('rede_top_73_162459.mat', 'net');
+load('../models/rede_top_73_162459.mat', 'net');
 net1 = net;
-load('rede_top_64_152746.mat', 'net');
+load('../models/rede_top_64_152746.mat', 'net');
 net2 = net;
-load('rede_top_62_162036.mat', 'net');
+load('../models/rede_top_62_162036.mat', 'net');
 net3 = net;
 
 

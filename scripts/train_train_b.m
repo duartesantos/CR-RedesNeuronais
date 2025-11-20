@@ -62,7 +62,7 @@ plotconfusion(targets, outputs);
 title(sprintf('Confusion Matrix - Topologia [%s]', num2str(topologia)));
 
 %Gravar rede
-nomeFicheiro = sprintf('rede_top_%02d_%s.mat', round(accuracyTeste*100), datestr(now,'HHMMSS'));
+nomeFicheiro = sprintf('../models/rede_top_%02d_%s.mat', round(accuracyTeste*100), datestr(now,'HHMMSS'));
 save(nomeFicheiro, 'net');
 fprintf('Rede guardada como "%s" com %.2f%% de precisão de teste.\n', nomeFicheiro, accuracyTeste * 100);
 
