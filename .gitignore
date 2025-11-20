@@ -1,0 +1,55 @@
+# MATLAB
+*.asv
+*.autosave
+*.m~
+*.mlapp.bak
+*.mlapp.tmp
+
+# MATLAB Compiler
+*.ctf
+*.prj
+
+# MATLAB Generated Files
+*.p
+*.mexw64
+*.mexw32
+*.mexglx
+*.mexa64
+*.mexmaci64
+
+# MATLAB Cache
+.m/
+
+# Simulink
+*.slxc
+*.slx.autosave
+*.slx.bak
+
+# Temporary files
+*.tmp
+*.log
+*.bak
+*~
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Large data files (opcional - descomente se não quiser versionar)
+# *.mat
+# *.fig
+
+# Documentos grandes (opcional)
+# *.docx
+# *.pdf
+
+# Arquivos ZIP (opcional)
+# *.zip
+
